@@ -42,4 +42,19 @@ Create a `BookingService` class to manage bookings in memory for now which we wi
 Also test the controller using `TestRestTemplate` class.
 
 
-## Step Two -
+## Step Two - Spring Data JPA for DB
+
+Add dependency ```implementation("org.springframework.boot:spring-boot-starter-data-jpa")```
+Define JPA entities and repositories.
+hibernate ddl generation.
+postgres local docker.
+testcontainer for integration tests.
+
+## Step Three - Observability
+
+## Step Four - Security
+
+## Step Five - Containerisation
+
+## Step Six - Deploy in Kubernetes
+

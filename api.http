@@ -1,0 +1,12 @@
+### GET request to example server
+GET localhost:8080/booking
+###
+
+POST localhost:8080/booking
+Content-Type: application/json
+
+{
+  "propertyId": "1",
+  "userId": "test@user.com",
+  "status": "PENDING"
+}

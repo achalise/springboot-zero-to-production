@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import spring.tutorial.zerotohero.booking.service.BookingService;
 import spring.tutorial.zerotohero.booking.service.DefaultBookingService;
+import spring.tutorial.zerotohero.repositories.BookingRepository;
 
 @SpringBootApplication
 public class ZerotoheroApplication {
@@ -20,7 +21,7 @@ public class ZerotoheroApplication {
 class Config {
 
 	@Bean
-	public BookingService bookingService() {
-		return new DefaultBookingService();
+	public BookingService bookingService(BookingRepository bookingRepository) {
+		return new DefaultBookingService(bookingRepository);
 	}
 }

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import spring.tutorial.zerotohero.booking.service.BookingService;
+import spring.tutorial.zerotohero.repositories.Booking;
 
 import java.util.List;
 
@@ -18,8 +19,8 @@ public class BookingController {
         this.bookingService = bookingService;
     }
     @GetMapping("/booking/{id}")
-    public ResponseEntity<Booking> getBooking(@PathVariable String id) {
-      Booking b = bookingService.getBooking(id);
+    public ResponseEntity<BookingRecord> getBooking(@PathVariable String id) {
+      BookingRecord b = bookingService.getBooking(id).orElse(null);
       if (b == null) {
           return ResponseEntity.notFound().build();
       } else {
@@ -28,12 +29,12 @@ public class BookingController {
     }
 
     @PostMapping("/booking")
-    public ResponseEntity<Booking> createBooking(@RequestBody Booking booking) {
+    public ResponseEntity<BookingRecord> createBooking(@RequestBody BookingRecord booking) {
         return ResponseEntity.ok(bookingService.createBooking(booking));
     }
 
     @GetMapping("/booking")
-    public ResponseEntity<List<Booking>> getBookings() {
+    public ResponseEntity<List<BookingRecord>> getBookings() {
         return ResponseEntity.ok(bookingService.getBookings());
     }
 }
